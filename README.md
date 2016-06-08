@@ -16,11 +16,13 @@ Cool loading indicator for angular2
 ### bootstrap.ts
 ```javascript
 import { bootstrap } from '@angular/platform-browser/browser';
+import { HTTP_PROVIDERS } from '@angular/http';
 import { COOL_HTTP_PROVIDERS } from 'angular2-cool-http';
 
 import { MyApp } from './src/my-app'
 
 bootstrap(MyApp, [
+    HTTP_PROVIDERS,
     COOL_HTTP_PROVIDERS
 ]);
 ```

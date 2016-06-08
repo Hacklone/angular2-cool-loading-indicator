@@ -1,6 +1,6 @@
 {
   "name": "angular2-cool-loading-indicator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cool loading indicator for angular2",
   "main": "index.js",
   "jsnext:main": "esm/index.js",
@@ -11,7 +11,7 @@
     "@angular/common": ">= 2.0.0-rc.1"
   },
   "dependencies": {
-    "angular2-cool-http": ">= 1.0.8"
+    "angular2-cool-http": ">= 1.0.9"
   },
   "scripts": {
     "build": "rm -rf ./dist && tsc --project tsconfig-es5.json && tsc --project tsconfig-es2015.json && cp ./README.md ./dist/README.md && cp ./package.json ./dist/package.json"
