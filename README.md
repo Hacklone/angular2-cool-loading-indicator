@@ -9,6 +9,9 @@ Cool loading indicator for angular2
 ## Dependencies
 > The angular2-cool-loading-indicator will only work properly if you utilize [angular2-cool-http](https://github.com/Hacklone/angular2-cool-http) for api calls.
 
+## Demo
+[View demo on Plunker](https://embed.plnkr.co/zusopx/)
+
 ## Install 
 > npm install --save angular2-cool-loading-indicator
 
