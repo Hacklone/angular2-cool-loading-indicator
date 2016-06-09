@@ -14,19 +14,11 @@ const DEFAULT_INDICATOR_DELAY = 500;
     `,
     directives: [ NgIf ]
 })
-export class CoolLoadingIndicator implements OnInit, OnDestroy {
+export class CoolLoadingIndicator implements OnInit, OnDestroy, IRequestInterceptor, IResponseInterceptor {
     coolHttp: CoolHttp;
 
     showIndicatorCounter: number = 0;
     showIndicator: boolean = false;
-
-    requestInterceptor: IRequestInterceptor = {
-        beforeRequestAsync: this.beforeRequestAsync
-    };
-
-    responseInterceptor: IResponseInterceptor = {
-        afterResponseAsync: this.afterResponseAsync
-    };
 
     @Input()
     indicatorDelay: number;
@@ -36,9 +28,9 @@ export class CoolLoadingIndicator implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.coolHttp.registerRequestInterceptor(this.requestInterceptor);
+        this.coolHttp.registerRequestInterceptor(this);
 
-        this.coolHttp.registerResponseInterceptor(this.responseInterceptor);
+        this.coolHttp.registerResponseInterceptor(this);
     }
 
     beforeRequestAsync() {
@@ -79,8 +71,8 @@ export class CoolLoadingIndicator implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.coolHttp.deregisterRequestInterceptor(this.requestInterceptor);
+        this.coolHttp.deregisterRequestInterceptor(this);
 
-        this.coolHttp.deregisterResponseInterceptor(this.responseInterceptor);
+        this.coolHttp.deregisterResponseInterceptor(this);
     }
 }

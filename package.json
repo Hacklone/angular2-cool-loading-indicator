@@ -1,6 +1,6 @@
 {
   "name": "angular2-cool-loading-indicator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cool loading indicator for angular2",
   "main": "index.js",
   "jsnext:main": "esm/index.js",
