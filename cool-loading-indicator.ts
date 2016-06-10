@@ -49,7 +49,7 @@ export class CoolLoadingIndicator implements OnInit, OnDestroy, IRequestIntercep
             this.showIndicator = true;
         }
 
-        return Promise.resolve();
+        return Promise.resolve(false);
     }
 
     afterResponseAsync() {
@@ -59,7 +59,7 @@ export class CoolLoadingIndicator implements OnInit, OnDestroy, IRequestIntercep
             this.showIndicator = false;
         }
 
-        return Promise.resolve();
+        return Promise.resolve(false);
     }
 
     get shouldShowIndicator() {
