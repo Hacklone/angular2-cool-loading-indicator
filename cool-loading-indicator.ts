@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { Component, OnInit, OnDestroy, Input, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { CoolHttp, IRequestInterceptor, IResponseInterceptor } from 'angular2-cool-http';
+import { CoolHttpModule, CoolHttp, IRequestInterceptor, IResponseInterceptor } from 'angular2-cool-http';
 
 const DEFAULT_INDICATOR_DELAY = 500;
 
@@ -11,8 +11,7 @@ const DEFAULT_INDICATOR_DELAY = 500;
         <div *ngIf="showIndicator" class="cool-loading-indicator">
             <ng-content></ng-content>
         </div>
-    `,
-    directives: [ NgIf ]
+    `
 })
 export class CoolLoadingIndicator implements OnInit, OnDestroy, IRequestInterceptor, IResponseInterceptor {
     coolHttp: CoolHttp;
@@ -76,3 +75,10 @@ export class CoolLoadingIndicator implements OnInit, OnDestroy, IRequestIntercep
         this.coolHttp.deregisterResponseInterceptor(this);
     }
 }
+
+@NgModule({
+    exports: [CoolLoadingIndicator],
+    imports: [CommonModule, CoolHttpModule],
+    declarations: [CoolLoadingIndicator]
+})
+export class CoolLoadingIndicatorModule {}

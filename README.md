@@ -18,27 +18,23 @@ Cool loading indicator for angular2
 ## Setup
 ### bootstrap.ts
 ```javascript
-import { bootstrap } from '@angular/platform-browser/browser';
-import { HTTP_PROVIDERS } from '@angular/http';
-import { COOL_HTTP_PROVIDERS } from 'angular2-cool-http';
+import { NgModule } from '@angular/core';
+import { CoolLoadingIndicatorModule } from 'angular2-cool-loading-indicator';
 
-import { MyApp } from './src/my-app'
+@NgModule({
+    imports: [CoolLoadingIndicatorModule]
+})
+export class MyAppModule {}
 
-bootstrap(MyApp, [
-    HTTP_PROVIDERS,
-    COOL_HTTP_PROVIDERS
-]);
 ```
 ### my-app.ts
 ```javascript
 import { Component, OnInit } from '@angular/core';
 
 import { CoolHttp } from 'angular2-cool-http';
-import { CoolLoadingIndicator } from 'angular2-cool-loading-indicator';
 
 @Component({
   selector: 'my-app',
-  directives: [ CoolLoadingIndicator ],
   template: `
     <div>
       <cool-loading-indicator [indicatorDelay]="500">
