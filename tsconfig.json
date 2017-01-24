@@ -4,7 +4,7 @@
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "mapRoot": "",
+    "mapRoot": "../../../../",
     "lib": [
       "es6",
       "dom"
@@ -18,6 +18,10 @@
     "sourceMap": true,
     "target": "es5",
     "inlineSources": true
+  },
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
   },
   "files": [
     "index.ts"
