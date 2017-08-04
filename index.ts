@@ -14,6 +14,8 @@ const DEFAULT_INDICATOR_DELAY = 500;
     `
 })
 export class CoolLoadingIndicator implements OnInit, OnDestroy, IRequestInterceptor, IResponseInterceptor {
+  private _attachedTo: CoolHttp[] = [];
+
   coolHttp: CoolHttp;
 
   showIndicatorCounter: number = 0;
@@ -27,9 +29,7 @@ export class CoolLoadingIndicator implements OnInit, OnDestroy, IRequestIntercep
   }
 
   ngOnInit() {
-    this.coolHttp.registerRequestInterceptor(this);
-
-    this.coolHttp.registerResponseInterceptor(this);
+    this.attachTo(this.coolHttp);
   }
 
   beforeRequestAsync() {
@@ -69,10 +69,22 @@ export class CoolLoadingIndicator implements OnInit, OnDestroy, IRequestIntercep
     return this.showIndicatorCounter < 1;
   }
 
-  ngOnDestroy() {
-    this.coolHttp.deregisterRequestInterceptor(this);
+  attachTo(http: CoolHttp) {
+    this._attachedTo.push(http);
 
-    this.coolHttp.deregisterResponseInterceptor(this);
+    http.registerRequestInterceptor(this);
+
+    http.registerResponseInterceptor(this);
+  }
+
+  ngOnDestroy() {
+    for (const http of this._attachedTo) {
+      http.deregisterRequestInterceptor(this);
+
+      http.deregisterResponseInterceptor(this);
+    }
+
+    this._attachedTo.length = 0;
   }
 }
 
