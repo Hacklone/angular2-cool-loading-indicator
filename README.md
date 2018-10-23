@@ -3,6 +3,11 @@
 [downloads-image]: https://img.shields.io/npm/dm/angular2-cool-loading-indicator.svg
 [total-downloads-image]: https://img.shields.io/npm/dt/angular2-cool-loading-indicator.svg
 
+# !!!!!!
+# This version of angular2-cool-loading-indicator is deprecated and only left here for reference.
+# Please use [@angular-cool/loading-indicator](https://www.npmjs.com/package/@angular-cool/loading-indicator) instead!
+# !!!!!!
+
 # angular2-cool-loading-indicator [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]  [![Total Downloads][total-downloads-image]][npm-url]
 Cool loading indicator for angular2
 
